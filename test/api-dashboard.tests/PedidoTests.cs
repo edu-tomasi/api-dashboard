@@ -1,4 +1,5 @@
 ﻿using api_dashboard.Domain;
+using api_dashboard.Domain.Entity;
 using System;
 using System.Linq;
 using Xunit;
@@ -41,10 +42,10 @@ namespace api_dashboard.tests
         {
             // Arrange
             var pedido = new Pedido("Endereço Exemplo");
-            var produto = new Produto(Guid.NewGuid(), "Produto", "Descrição Exemplo", 10);
+            var produto = new Produto("Produto", "Descrição Exemplo", 10);
 
             // Act
-            pedido.AdicionarProduto(produto.Id, produto.Nome, produto.Descricao, produto.Valor);
+            pedido.AdicionarProduto(produto.Nome, produto.Descricao, produto.Valor);
 
             // Assert
             Assert.Single(pedido.Produtos);
@@ -59,7 +60,7 @@ namespace api_dashboard.tests
             var pedido = new Pedido("Endereço Exemplo");
             var idProduto = Guid.NewGuid();
 
-            pedido.AdicionarProduto(idProduto, "Produdo Exemplo", "Descrição Exemplo", 10m);
+            pedido.AdicionarProduto("Produdo Exemplo", "Descrição Exemplo", 10m);
 
             // Act & Assert
             var exception = Assert.Throws<DomainException>(() => pedido.AlterarProduto(Guid.NewGuid(), "Produto Exemplo", "Descrição Exemplo", 9.99m));
@@ -76,7 +77,7 @@ namespace api_dashboard.tests
             var valorOriginal = 10m;
             var valorAtualizado = 9.99m;
 
-            pedido.AdicionarProduto(idProduto, "Produdo Exemplo", "Descrição Exemplo", valorOriginal);
+            pedido.AdicionarProduto("Produdo Exemplo", "Descrição Exemplo", valorOriginal);
 
             // Act
             pedido.AlterarProduto(idProduto, "Produto Exemplo", "Descrição Exemplo", valorAtualizado);
@@ -93,7 +94,7 @@ namespace api_dashboard.tests
             // Arrange
             var idProduto = Guid.NewGuid();
             var pedido = new Pedido("Endereço Exemplo");
-            pedido.AdicionarProduto(idProduto, "Produto Exemplo", "Descrição Exemplo", 10);
+            pedido.AdicionarProduto("Produto Exemplo", "Descrição Exemplo", 10);
 
             // Act
             pedido.RemoverProduto(idProduto);

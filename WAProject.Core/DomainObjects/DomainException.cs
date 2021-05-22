@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace api_dashboard.Domain
+namespace WAProject.Core.DomainObjects
 {
+
     public class DomainException : Exception
     {
         public DomainException() : base() { }
