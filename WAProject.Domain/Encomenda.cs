@@ -9,6 +9,6 @@ namespace WAProject.Domain
         public virtual Equipe Equipe { get; set; }
         public Guid EquipeId { get; set; }
         public virtual Pedido Pedido { get; set; }
-        //public Guid PedidoId { get; set; }
+        public Guid PedidoId { get; set; }
     }
 }

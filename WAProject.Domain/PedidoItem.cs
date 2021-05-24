@@ -6,7 +6,6 @@ namespace WAProject.Domain
 { 
     public class PedidoItem : Entity
     {
-        //public virtual Pedido Pedido { get; set; }
         public Guid PedidoId { get; set; }
         public Guid ProdutoId { get; set; }
         public string Nome { get; set; }

@@ -8,6 +8,5 @@ namespace WAProject.Domain
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public string PlacaVeiculoUtilizado { get; set; }
-        //public ICollection<Encomenda> Encomendas { get; set; }
     }
 }

@@ -12,7 +12,6 @@ namespace WAProject.Domain
         public DateTime? DataDeEntrega { get; set; }
         public Endereco Endereco { get; set; }
 
-        //public virtual Encomenda Encomenda { get; set; }
         public Guid EncomendaId { get; set; }
         public ICollection<PedidoItem> PedidoItens { get; set; }
     }

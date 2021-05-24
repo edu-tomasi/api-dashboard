@@ -45,10 +45,6 @@ namespace WAProject.Data.Mappings
                     .IsRequired();
             });
 
-            //builder.HasMany(c => c.PedidoItens)
-            //    .WithOne(c => c.Pedido)
-            //    .HasForeignKey(c => c.PedidoId);
-
             builder.ToTable("Pedidos");
         }
     }

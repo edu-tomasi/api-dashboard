@@ -1,14 +1,14 @@
-using api_dashboard.Setup;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using WAProject.API.Setup;
 using WAProject.Data;
+using WAProjetct.API.Helpers;
 
-namespace api_dashboard
+namespace WAProject.API
 {
     public class Startup
     {
@@ -24,10 +24,8 @@ namespace api_dashboard
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "api_dashboard", Version = "v1" });
-            });
+
+            services.AddControllersWithViews();
 
             services.AddDbContext<WAProjectContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SQLServerConnection")));
@@ -41,15 +39,13 @@ namespace api_dashboard
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "api_dashboard v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseMiddleware<TokenMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

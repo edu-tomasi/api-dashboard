@@ -14,9 +14,6 @@ namespace WAProject.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(14)");
 
-            //builder.HasOne(e => e.Pedido)
-            //    .WithOne(p => p.Encomenda)
-            //    .HasForeignKey<Pedido>(e => e.EncomendaId);
             builder.HasOne(e => e.Pedido);
 
             builder.ToTable("Encomendas");

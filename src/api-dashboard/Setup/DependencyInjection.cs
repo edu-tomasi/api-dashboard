@@ -1,10 +1,9 @@
-﻿using api_dashboard.Applcation;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using WAProject.Data;
 using WAProject.Data.Repository;
 using WAProject.Domain;
 
-namespace api_dashboard.Setup
+namespace WAProject.API.Setup
 {
     public static class DependencyInjection
     {
@@ -16,9 +15,6 @@ namespace api_dashboard.Setup
             services.AddScoped<IEquipeRepository, EquipeRepository>();
             services.AddScoped<IEncomendaRepository, EncomendaRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
-
-            services.AddScoped<IEncomendaService, EncomendaService>();
-            
         }
     }
 }

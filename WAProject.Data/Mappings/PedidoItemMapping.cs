@@ -10,10 +10,6 @@ namespace WAProject.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
-            //builder.HasOne(c => c.Pedido)
-            //    .WithMany(c => c.PedidoItens)
-            //    .HasForeignKey(c => c.PedidoId);
-
             builder.Property(c => c.ProdutoId)
                 .IsRequired();
 
